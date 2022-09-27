@@ -1,20 +1,25 @@
-import './App.css';
-import Layout from "./Layout/Layout";
-import HomePage from "./pages/HomePage";
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
-import CartPage from "./pages/CartPage";
+import './App.css'
+
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+
+import CartPage from './pages/CartPage'
+import CartProvider from './context/CartProvider'
+import HomePage from './pages/HomePage'
+import Layout from './Layout/Layout'
 
 function App() {
-    return (
-        <BrowserRouter>
-            <div className="App">
-                <Routes>
-                    <Route path="/" element={<HomePage/>} exact={true}/>
-                    <Route path="/cart" element={<CartPage/>}/>
-                </Routes>
-            </div>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <CartProvider>
+        <div className='App'>
+          <Routes>
+            <Route path='/' element={<HomePage />} exact={true} />
+            <Route path='/cart' element={<CartPage />} />
+          </Routes>
+        </div>
+      </CartProvider>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
