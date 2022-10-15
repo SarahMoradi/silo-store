@@ -15,9 +15,6 @@ const CartPage = () => {
     )
   return (
     <Layout>
-      <div className='text-center mt-1'>
-        <h2>cart summary</h2>
-      </div>
       <main className='container'>
         <section className='w-75'>
           {cartState.cart.map((item) => {
@@ -33,7 +30,9 @@ const CartPage = () => {
                 </div>
                 <div>
                   <div className='selected-product'>{item.name}</div>
-                  <div className='selected-product'>Total price is: {item.price * item.quantity} $</div>
+                  <div className='selected-product'>
+                    Total price is: {item.price * item.quantity} $
+                  </div>
                 </div>
                 <div className='btn-container'>
                   <button>+</button>
@@ -43,6 +42,9 @@ const CartPage = () => {
               </div>
             )
           })}
+        </section>
+        <section className='text-center cart-summary-container mt-1 w-25'>
+          <h2>cart summary</h2>
         </section>
       </main>
     </Layout>

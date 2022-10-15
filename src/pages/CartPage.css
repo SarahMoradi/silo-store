@@ -4,7 +4,7 @@
   border: 1px solid darkviolet;
   padding: 15px;
   border-radius: 10px;
-  margin: 15px 0;
+  margin-top: 5px;
 }
 .cartItem img {
   border-radius: 10px !important;
@@ -29,4 +29,10 @@
   padding: 10px;
   color: darkviolet;
   font-weight: bold;
+}
+.cart-summary-container {
+  border: 1px solid darkviolet;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 0 15px;
 }
