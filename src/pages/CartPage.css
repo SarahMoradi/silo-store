@@ -1,0 +1,32 @@
+.cartItem {
+  display: flex;
+  position: relative;
+  border: 1px solid darkviolet;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+.cartItem img {
+  border-radius: 10px !important;
+}
+.btn-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+}
+.btn-container button {
+  width: 40px;
+  padding: 5px 10px;
+  margin: 10px;
+  border: none !important;
+  background-color: darkviolet !important;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.selected-product {
+  padding: 10px;
+  color: darkviolet;
+  font-weight: bold;
+}

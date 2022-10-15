@@ -1,10 +1,13 @@
 import * as data from '../data'
 
 import Layout from '../Layout/Layout'
+import { useCartAction } from '../context/CartProvider'
 
 const HomePage = () => {
+  const dispatch = useCartAction()
+
   const addToCartHandler = (product) => {
-    console.log(product)
+    dispatch({ type: 'ADD_TO_CART', payload: product })
   }
   return (
     <Layout>
