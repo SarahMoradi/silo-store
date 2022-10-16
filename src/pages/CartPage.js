@@ -1,10 +1,20 @@
 import './CartPage.css'
 
+import { useCart, useCartAction } from '../context/CartProvider'
+
 import Layout from '../Layout/Layout'
-import { useCart } from '../context/CartProvider'
 
 const CartPage = () => {
   const cartState = useCart()
+  const dispatch = useCartAction()
+
+  const incrementHandler = (cartItem) => {
+    dispatch({ type: 'ADD_TO_CART', payload: cartItem })
+  }
+  const decrementHandler = (cartItem) => {
+    dispatch({ type: 'REMOVE_PRODUCT', payload: cartItem })
+  }
+
   if (!cartState.cart.length)
     return (
       <Layout>
@@ -35,9 +45,9 @@ const CartPage = () => {
                   </div>
                 </div>
                 <div className='btn-container'>
-                  <button>+</button>
+                  <button onClick={() => incrementHandler(item)}>+</button>
                   <button>{item.quantity}</button>
-                  <button>-</button>
+                  <button onClick={() => decrementHandler(item)}>-</button>
                 </div>
               </div>
             )
