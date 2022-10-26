@@ -5,7 +5,7 @@ import { useCart, useCartAction } from '../context/CartProvider'
 import Layout from '../Layout/Layout'
 
 const CartPage = () => {
-  const cartState = useCart()
+  const { cart, total } = useCart()
   const dispatch = useCartAction()
 
   const incrementHandler = (cartItem) => {
@@ -15,7 +15,7 @@ const CartPage = () => {
     dispatch({ type: 'REMOVE_PRODUCT', payload: cartItem })
   }
 
-  if (!cartState.cart.length)
+  if (!cart.length)
     return (
       <Layout>
         <main>
@@ -27,7 +27,7 @@ const CartPage = () => {
     <Layout>
       <main className='container'>
         <section className='w-75'>
-          {cartState.cart.map((item) => {
+          {cart.map((item) => {
             return (
               <div className='cartItem'>
                 <div>
@@ -55,6 +55,7 @@ const CartPage = () => {
         </section>
         <section className='text-center cart-summary-container mt-1 w-25'>
           <h2>cart summary</h2>
+          <div>{total}</div>
         </section>
       </main>
     </Layout>

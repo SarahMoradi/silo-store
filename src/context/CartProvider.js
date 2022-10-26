@@ -4,6 +4,8 @@ import CartReducer from './CartReducer'
 
 const cartContext = createContext()
 const cartContextDispatcher = createContext()
+
+
 const initialState = {
     //array of products in cart
   cart: [],

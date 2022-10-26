@@ -1,7 +1,9 @@
 import * as data from '../data'
 
+import { useCart, useCartAction } from '../context/CartProvider'
+
 import Layout from '../Layout/Layout'
-import { useCartAction } from '../context/CartProvider'
+import { checkInCart } from '../utils/checkInCart'
 
 const HomePage = () => {
   const dispatch = useCartAction()
@@ -9,6 +11,8 @@ const HomePage = () => {
   const addToCartHandler = (product) => {
     dispatch({ type: 'ADD_TO_CART', payload: product })
   }
+  const { cart } = useCart()
+
   return (
     <Layout>
       <main className='container'>
@@ -28,7 +32,7 @@ const HomePage = () => {
                   <p>{product.name}</p>
                   <p>${product.price}</p>
                   <button onClick={() => addToCartHandler(product)}>
-                    Add to cart
+                    {checkInCart(cart, product) ? 'In cart' : 'Add to cart'}
                   </button>
                 </div>
               </section>
