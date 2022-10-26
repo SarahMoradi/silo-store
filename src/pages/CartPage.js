@@ -2,7 +2,9 @@ import './CartPage.css'
 
 import { useCart, useCartAction } from '../context/CartProvider'
 
+import { Button } from 'reactstrap'
 import Layout from '../Layout/Layout'
+import { Link } from 'react-router-dom'
 
 const CartPage = () => {
   const { cart, total } = useCart()
@@ -60,12 +62,13 @@ const CartPage = () => {
 }
 export default CartPage
 
-const CartSummery = ({total, cart}) => {
-  
+const CartSummery = ({ total, cart }) => {
   // const {cart, total} = useCart()
 
-  const originalTotalPrice = cart.length ? cart.reduce((acc, curr) => acc + curr.quantity * curr.price, 0) : 0
-  
+  const originalTotalPrice = cart.length
+    ? cart.reduce((acc, curr) => acc + curr.quantity * curr.price, 0)
+    : 0
+
   return (
     <section className='text-center cart-summary-container mt-1 w-25'>
       <h2>cart summary</h2>
@@ -82,6 +85,11 @@ const CartSummery = ({total, cart}) => {
         <p>net price</p>
         <p>{total} $</p>
       </div>
+      <Link to='/checkout'>
+        <Button color='success' className='w-100'>
+          Go to checkout
+        </Button>
+      </Link>
     </section>
   )
 }
