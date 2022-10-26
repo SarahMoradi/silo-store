@@ -41,7 +41,7 @@ const CartPage = () => {
                 <div>
                   <div className='selected-product'>{item.name}</div>
                   <div className='selected-product'>
-                    Total price is: {item.price * item.quantity} $
+                    Total price is: {item.offPrice * item.quantity} $
                   </div>
                 </div>
                 <div className='btn-container'>
@@ -53,12 +53,35 @@ const CartPage = () => {
             )
           })}
         </section>
-        <section className='text-center cart-summary-container mt-1 w-25'>
-          <h2>cart summary</h2>
-          <div>{total}</div>
-        </section>
+        <CartSummery total={total} cart={cart} />
       </main>
     </Layout>
   )
 }
 export default CartPage
+
+const CartSummery = ({total, cart}) => {
+  
+  // const {cart, total} = useCart()
+
+  const originalTotalPrice = cart.length ? cart.reduce((acc, curr) => acc + curr.quantity * curr.price, 0) : 0
+  
+  return (
+    <section className='text-center cart-summary-container mt-1 w-25'>
+      <h2>cart summary</h2>
+      <div className='d-flex justify-content-between mt-4'>
+        <p>original total price</p>
+        <p>{originalTotalPrice} $</p>
+      </div>
+      <div className='d-flex justify-content-between'>
+        <p>cart discount</p>
+        <p>{originalTotalPrice - total} $</p>
+      </div>
+      <hr />
+      <div className='d-flex justify-content-between'>
+        <p>net price</p>
+        <p>{total} $</p>
+      </div>
+    </section>
+  )
+}
