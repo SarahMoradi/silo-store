@@ -3,6 +3,7 @@ import * as Yup from 'yup'
 import { Button, Col, Row } from 'reactstrap'
 
 import Input from '../../common'
+import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
 
 const initialValues = {
@@ -93,8 +94,9 @@ const SignupForm = () => {
               className='w-75 mt-5 p-3'
               color='success'
             >
-              confirm
+              Sign Up
             </Button>
+            <Link to='/login'><p className='mt-2'>Already Login ?</p></Link>
           </Col>
         </Row>
       </form>

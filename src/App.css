@@ -39,7 +39,10 @@
   justify-content: center;
   margin-top: 2rem;
 }
-button:disabled{
+button:disabled {
   cursor: not-allowed;
   background-color: rgb(207, 78, 78);
+}
+a {
+  text-decoration: none;
 }
