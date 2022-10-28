@@ -88,7 +88,11 @@ const SignupForm = () => {
           <Col md='4'></Col>
           <Col md='4'></Col>
           <Col md='4'>
-            <Button className='w-75 mt-5 p-3' color='success'>
+            <Button
+              disabled={!formik.isValid}
+              className='w-75 mt-5 p-3'
+              color='success'
+            >
               confirm
             </Button>
           </Col>
